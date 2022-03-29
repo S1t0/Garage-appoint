@@ -8,13 +8,11 @@ const main_app: FastifyPluginAsync = async (app) => {
 	await app.register(blipp);
 	await app.register(fastifyCors);
 
-	// Do not await this plugin, it  cause whole app to wait
-	// for db connection, mongoose already does that in the background.
 	conectDB();
 
 	app.register(main_router);
 
-	// when app starts, blip the installed routes on terminal
+	
 	app.blipp();
 };
 
